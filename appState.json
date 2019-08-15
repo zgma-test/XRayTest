@@ -22,7 +22,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "XRayTest/lambda.js",
-        "code": "let AWS = require('aws-sdk');\nconst sns = new AWS.SNS();\n\nexports.handler = function (event, context, callback) {\n\n    sns.publish({\n        Message: 'hello',\n        MessageAttributes: {},\n        MessageStructure: 'String',\n        TopicArn: 'arn:aws:sns:us-east-1:318300609668:udith-test'\n    }).promise()\n        .then(data => {\n            console.log(\"Successful\");\n            callback(null, { \"message\": \"Successfully executed\" });\n        })\n        .catch(err => {\n            console.log(\"Failed\", err);\n            callback(err);\n        });\n\n    \n}",
+        "code": "let AWS = require('aws-sdk');\nconst sns = new AWS.SNS();\n\nexports.handler = function (event, context, callback) {\n\n    sns.publish({\n        Message: 'hello1',\n        MessageAttributes: {},\n        MessageStructure: 'String',\n        TopicArn: 'arn:aws:sns:us-east-1:318300609668:udith-test'\n    }).promise()\n        .then(data => {\n            console.log(\"Successful\");\n            callback(null, { \"message\": \"Successfully executed\" });\n        })\n        .catch(err => {\n            console.log(\"Failed\", err);\n            callback(err);\n        });\n\n    \n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -42,9 +42,7 @@
         ]
       }
     },
-    "deletedFiles": [
-      "XRayTest/wdwd.js"
-    ],
+    "deletedFiles": [],
     "rootNode": "8b0c2386-917d-4eb7-9698-aaff38eca9ab",
     "openFiles": [
       "1f3782a3-392d-4767-a55b-62833fe79e49"
@@ -116,7 +114,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1565868674953
+    "lastSave": 1565869543456
   },
   "VCS_STATE": {
     "provider": "GitHub",
