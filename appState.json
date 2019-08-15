@@ -1,0 +1,128 @@
+{
+  "EDITOR_STATE": {
+    "allProjectFiles": {
+      "8b0c2386-917d-4eb7-9698-aaff38eca9ab": {
+        "id": "8b0c2386-917d-4eb7-9698-aaff38eca9ab",
+        "parent": null,
+        "name": "XRayTest",
+        "type": "DIRECTORY",
+        "isDirectory": true,
+        "children": [
+          "1f3782a3-392d-4767-a55b-62833fe79e49"
+        ],
+        "isRemovable": false,
+        "filePath": "XRayTest"
+      },
+      "1f3782a3-392d-4767-a55b-62833fe79e49": {
+        "id": "1f3782a3-392d-4767-a55b-62833fe79e49",
+        "parent": "8b0c2386-917d-4eb7-9698-aaff38eca9ab",
+        "name": "lambda.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "XRayTest/lambda.js",
+        "code": "let AWS = require('aws-sdk');\nconst sns = new AWS.SNS();\n\nexports.handler = function (event, context, callback) {\n\n    sns.publish({\n        Message: 'hello',\n        MessageAttributes: {},\n        MessageStructure: 'String',\n        TopicArn: 'arn:aws:sns:us-east-1:318300609668:udith-test'\n    }).promise()\n        .then(data => {\n            console.log(\"Successful\");\n            callback(null, { \"message\": \"Successfully executed\" });\n        })\n        .catch(err => {\n            console.log(\"Failed\", err);\n            callback(err);\n        });\n\n    \n}",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": [],
+          "vpc": "",
+          "subNets": [],
+          "secGroups": [],
+          "xRayEnabled": true
+        },
+        "triggers": [
+          {
+            "resourceName": "apigusEast1TracingAPItraceget",
+            "config": {}
+          }
+        ]
+      }
+    },
+    "deletedFiles": [
+      "XRayTest/wdwd.js"
+    ],
+    "rootNode": "8b0c2386-917d-4eb7-9698-aaff38eca9ab",
+    "openFiles": [
+      "1f3782a3-392d-4767-a55b-62833fe79e49"
+    ],
+    "currentFileId": "1f3782a3-392d-4767-a55b-62833fe79e49",
+    "resources": {
+      "apigusEast1TracingAPItraceget": {
+        "name": "apigusEast1TracingAPItraceget",
+        "type": "API_GATEWAY",
+        "config": {
+          "selectedRegion": "us-east-1",
+          "apiMode": 0,
+          "apiName": "TracingAPI",
+          "endpointType": "EDGE",
+          "resourceMode": 0,
+          "resourceName": "trace",
+          "resourcePath": "/trace",
+          "restMethod": "GET",
+          "proxyIntegration": false,
+          "enableCORS": true,
+          "stageMode": 0,
+          "stageName": "test",
+          "mode": 0
+        }
+      },
+      "snsusEast1udithTest": {
+        "name": "snsusEast1udithTest",
+        "type": "SNS",
+        "config": {
+          "topicMode": 1,
+          "topicName": "udith-test",
+          "topicArn": "arn:aws:sns:us-east-1:318300609668:udith-test",
+          "topicRegion": "us-east-1",
+          "snsType": 0,
+          "subscriptions": []
+        }
+      }
+    },
+    "customTemplate": {
+      "dialect": null,
+      "definitions": {}
+    },
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
+    "packageJSON": {
+      "dependencies": {
+        "aws-sdk": {
+          "name": "aws-sdk",
+          "language": "javascript",
+          "version": "2.176.0",
+          "dev": true,
+          "notRemovable": false
+        }
+      }
+    }
+  },
+  "PROJECT_META": {
+    "projectName": "XRayTest",
+    "projectDescription": "",
+    "projectVersion": "1.0.0",
+    "projectRegion": "us-east-1",
+    "platform": "AWS",
+    "platformRegions": {},
+    "lastSave": 1565868674953
+  },
+  "VCS_STATE": {
+    "provider": "GitHub",
+    "repo": {
+      "name": "XRayTest",
+      "url": "https://github.com/zgma-test/XRayTest"
+    }
+  }
+}
