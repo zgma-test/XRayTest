@@ -17,6 +17,4 @@ exports.handler = function (event, context, callback) {
             console.log("Failed", err);
             callback(err);
         });
-
-    
 }
