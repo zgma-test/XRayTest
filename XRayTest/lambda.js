@@ -4,7 +4,7 @@ const sns = new AWS.SNS();
 exports.handler = function (event, context, callback) {
 
     sns.publish({
-        Message: 'hello1',
+        Message: 'hello123',
         MessageAttributes: {},
         MessageStructure: 'String',
         TopicArn: 'arn:aws:sns:us-east-1:318300609668:udith-test'

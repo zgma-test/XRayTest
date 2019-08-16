@@ -22,7 +22,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "XRayTest/lambda.js",
-        "code": "let AWS = require('aws-sdk');\nconst sns = new AWS.SNS();\n\nexports.handler = function (event, context, callback) {\n\n    sns.publish({\n        Message: 'hello1',\n        MessageAttributes: {},\n        MessageStructure: 'String',\n        TopicArn: 'arn:aws:sns:us-east-1:318300609668:udith-test'\n    }).promise()\n        .then(data => {\n            console.log(\"Successful\");\n            callback(null, { \"message\": \"Successfully executed\" });\n        })\n        .catch(err => {\n            console.log(\"Failed\", err);\n            callback(err);\n        });\n\n    \n}",
+        "code": "let AWS = require('aws-sdk');\nconst sns = new AWS.SNS();\n\nexports.handler = function (event, context, callback) {\n\n    sns.publish({\n        Message: 'hello123',\n        MessageAttributes: {},\n        MessageStructure: 'String',\n        TopicArn: 'arn:aws:sns:us-east-1:318300609668:udith-test'\n    }).promise()\n        .then(data => {\n            console.log(\"Successful\");\n            callback(null, { \"message\": \"Successfully executed\" });\n        })\n        .catch(err => {\n            console.log(\"Failed\", err);\n            callback(err);\n        });\n\n    \n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -32,7 +32,8 @@
           "vpc": "",
           "subNets": [],
           "secGroups": [],
-          "xRayEnabled": true
+          "xRayEnabled": true,
+          "dqlARN": "arn:aws:sqs:us-east-1:318300609668:udith-test-queue"
         },
         "triggers": [
           {
@@ -114,7 +115,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1565869543456
+    "lastSave": 1565940542163
   },
   "VCS_STATE": {
     "provider": "GitHub",
