@@ -1,20 +1,9 @@
 let AWS = require('aws-sdk');
+let SL_AWS = require('slappforge-sdk-aws');
+const sqs = new SL_AWS.SQS(AWS);
 const sns = new AWS.SNS();
 
 exports.handler = function (event, context, callback) {
 
-    sns.publish({
-        Message: 'hello123',
-        MessageAttributes: {},
-        MessageStructure: 'String',
-        TopicArn: 'arn:aws:sns:us-east-1:318300609668:udith-test'
-    }).promise()
-        .then(data => {
-            console.log("Successful");
-            callback(null, { "message": "Successfully executed" });
-        })
-        .catch(err => {
-            console.log("Failed", err);
-            callback(err);
-        });
+
 }
