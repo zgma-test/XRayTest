@@ -22,7 +22,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "XRayTest/lambda.js",
-        "code": "let AWS = require('aws-sdk');\nlet SL_AWS = require('slappforge-sdk-aws');\nconst sqs = new SL_AWS.SQS(AWS);\nconst sns = new AWS.SNS();\n\nexports.handler = function (event, context, callback) {\n\n\n}",
+        "code": "let AWS = require('aws-sdk');\nlet SL_AWS = require('slappforge-sdk-aws');\nconst sqs = new SL_AWS.SQS(AWS);\nconst sns = new AWS.SNS();\n\nexports.handler = function (event, context, callback) {\n\n    console.log(event);\n    callback(null, \"Hello\");\n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -33,14 +33,24 @@
           "subNets": [],
           "secGroups": [],
           "xRayEnabled": true,
-          "dqlARN": "arn:aws:sns:us-east-1:318300609668:udith-test"
+          "dqlARN": "arn:aws:sns:us-east-1:318300609668:udith-test",
+          "throttleLimit": 95
         },
         "triggers": [
           {
             "resourceName": "apigusEast1TracingAPItraceget",
             "config": {}
           }
-        ]
+        ],
+        "testCases": {
+          "b989e8f1-c2d4-4e97-b873-bb3347087f27": {
+            "id": "b989e8f1-c2d4-4e97-b873-bb3347087f27",
+            "name": "Test event",
+            "functionId": "1f3782a3-392d-4767-a55b-62833fe79e49",
+            "event": "{\n    \"key1\": \"value1\",\n    \"key2\": \"value2\",\n    \"key3\": \"value3\"\n}",
+            "eventTemplate": "hello-world"
+          }
+        }
       }
     },
     "deletedFiles": [],
@@ -143,7 +153,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1565941917859
+    "lastSave": 1566215759531
   },
   "VCS_STATE": {
     "provider": "GitHub",

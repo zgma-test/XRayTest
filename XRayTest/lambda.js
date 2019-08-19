@@ -5,5 +5,6 @@ const sns = new AWS.SNS();
 
 exports.handler = function (event, context, callback) {
 
-
+    console.log(event);
+    callback(null, "Hello");
 }
